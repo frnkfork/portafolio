@@ -7,9 +7,9 @@ interface QRModalProps {
     restaurantName?: string;
 }
 
-/** URL for the QR — always reflects the actual deployed domain (Vercel, ngrok, etc.) */
-/** URL for the QR — points specifically to the customer digital menu view */
-const MENU_URL = `${window.location.origin}${window.location.pathname}?view=customer`;
+/** URL for the QR — prioritizes a production URL from environment variables, falls back to current origin */
+const PUBLIC_URL = import.meta.env.VITE_PUBLIC_URL || window.location.origin;
+const MENU_URL = `${PUBLIC_URL}/?view=customer`;
 
 export const QRModal = ({ onClose, restaurantName = 'Nuestro Restaurante' }: QRModalProps) => {
     const printRef = useRef<HTMLDivElement>(null);

@@ -1,72 +1,62 @@
 # 🎙️ EasyMenu Voice-Admin
 ### La revolución de la gestión gastronómica manos libres.
 
-**EasyMenu Voice-Admin** es una solución SaaS diseñada para digitalizar la operativa de restaurantes modernos. Permite a los dueños y staff de cocina gestionar su carta, inventario y pedidos en tiempo real utilizando la potencia de la inteligencia artificial y comandos de voz, eliminando la fricción de las pantallas táctiles durante las horas punta.
+**EasyMenu Voice-Admin** es una plataforma SaaS diseñada para digitalizar la operativa de restaurantes modernos. Combina la potencia de **Supabase Realtime**, comandos de voz con IA y una interfaz premium para ofrecer una experiencia de gestión fluida tanto para el personal del restaurante como para los comensales.
 
 ---
 
 ## 💡 Solución a Problemas Reales
 
-En un entorno de cocina o barra, la velocidad lo es todo. Tocar una tablet con manos ocupadas o húmedas es ineficiente y poco higiénico.
-- **Sin Manos**: Cambia precios o agota platos gritando un comando mientras sigues preparando pedidos.
-- **Sincronización Total**: Lo que cambias en el dashboard se refleja al instante en el celular del cliente.
-- **Gestión de Estrés**: Recibe notificaciones auditivas de nuevos pedidos sin mirar la pantalla.
-
----
-
-## 🛠️ Tecnologías de Vanguardia
-
-- **Frontend**: [React.js](https://reactjs.org/) con **TypeScript** para un código robusto.
-- **Estilos**: [Tailwind CSS](https://tailwindcss.com/) para una interfaz premium y ultra-responsiva.
-- **Animaciones**: [Framer Motion](https://www.framer.com/motion/) para una experiencia de usuario fluida (iPhone Live Drawer).
-- **Inteligencia de Voz**: [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) para reconocimiento de lenguaje natural y síntesis de voz.
-- **Backend & Tiempo Real**: [Supabase](https://supabase.com/) (PostgreSQL + Realtime) para la persistencia de datos y sincronización instantánea entre dispositivos.
-- **Iconografía**: [Lucide React](https://lucide.dev/) para un diseño limpio y moderno.
+En el caos de una cocina o barra, la eficiencia y la higiene son críticas.
+- **Gestión Manos Libres**: Cambia precios, agota productos o consulta pedidos usando comandos de voz mientras sigues cocinando.
+- **Sincronización Total**: Cualquier cambio en el Dashboard (stock, precios, disponibilidad) se refleja instantáneamente en el móvil del cliente mediante WebSockets.
+- **Cero Latencia de Pedidos**: Recibe comandas con alertas sonoras y visuales al instante, sin refrescar la página.
 
 ---
 
 ## ✨ Características Principales
 
 ### 🎤 Administración por Voz (NLP)
-Controla tu restaurante con lenguaje natural. El sistema entiende contextos y ejecuta acciones inmediatas.
-*Ejemplos de comandos:*
-```text
-"Sube el precio del Lomo Saltado a 45 soles"
-"Marca la Causa Limeña como agotada"
-"Descuento del 10 por ciento en todos los Postres"
-"Restablecer menú original"
-```
+Controla tu negocio con lenguaje natural. El sistema procesa órdenes complejas y da feedback auditivo.
+- *"Aplica un descuento del 15% a todas las Bebidas"*
+- *"Se terminó el Lomo Saltado"* (Lo marca como agotado y aplica efecto visual en la carta)
+- *"Aumenta el precio del Ceviche a 42 soles"*
 
-### 📱 Live Preview (Mirroring)
-Visualiza exactamente lo que ve tu cliente. El panel lateral simula una experiencia de iPhone real que se actualiza mediante **Supabase Realtime**, permitiendo validar cambios de stock o precios al segundo.
+### 📑 Sistema de Gestión de Pedidos (Live)
+Un panel táctico para el control de comandas:
+- **Flujo de Cocina**: Estados dinámicos (Pendiente ⮕ Preparando ⮕ Entregado).
+- **Auto-Limpieza**: Los pedidos entregados se eliminan de la base de datos tras 30 segundos para mantener la agilidad del sistema.
+- **Notificaciones 360°**: Alertas por voz, efectos de sonido y avisos visuales (Toasts).
 
-### 📦 Gestión de Inventario Inteligente
-Toggles de disponibilidad de alta velocidad. Cuando marcas un producto como agotado en el **Modo Stock**, este se difumina automáticamente con un efecto "Grayscale" elegante en la carta del cliente, evitando pedidos de platos sin stock.
+### 🤳 Smart QR & Vista Cliente
+- **Acceso Directo**: El sistema genera un código QR que detecta automáticamente si debe mostrar la carta digital (`view=customer`).
+- **Universalidad**: Compatible con despliegues en local y producción (Vercel) mediante la variable `VITE_PUBLIC_URL`.
+- **Detección de Mesas**: Reconocimiento automático del número de mesa mediante URL (`?mesa=X`).
 
-### 📑 Dashboard de Pedidos en Vivo
-Un centro de control táctico para gestionar el flujo de cocina:
-- **Estados Dinámicos**: Control total sobre el ciclo de vida del pedido (Pendiente ⮕ Preparando ⮕ Entregado).
-- **Auto-Limpieza Inteligente**: Los pedidos entregados se eliminan automáticamente de la base de datos tras 30 segundos, manteniendo el sistema ligero y enfocado.
-- **Alertas Multi-Sensoriales**: Notificaciones por voz (Speech Synthesis), sonidos (SFX) y visuales (Toasts) para que nada pase desapercibido.
-
-### 🖼️ Robusto Sistema de Imágenes
-- **Smart Fallback**: Si una imagen de plato falla o no se proporciona, el sistema utiliza un placeholder gastronómico profesional, garantizando que la carta siempre luzca premium.
-- **Optimización Visiva**: Efectos de escala y escala de grises automática para platos agotados.
-
-### 📍 Gestión de Mesas
-- **Detección por URL**: Reconocimiento automático del número de mesa mediante parámetros `?mesa=X`.
-- **Identificación Manual**: Sistema de solicitud de mesa inteligente para clientes que ingresan directamente, asegurando que cada comanda tenga un destino claro.
+### 🎨 Branding & UX Premium
+- **Iconografía B&W**: Favicon minimalista personalizado (Olla con vapor).
+- **Live Mirroring**: Drawer lateral que simula un iPhone real en tiempo real dentro del Dashboard.
+- **Smart Placeholders**: Sistema inteligente que garantiza que ningún plato se vea sin imagen, usando placeholders gastronómicos de alta calidad.
 
 ---
 
-## 🚀 Instalación y Despliegue
+## 🛠️ Stack Tecnológico
 
-Sigue estos pasos para tener tu Dashboard funcionando en menos de 2 minutos:
+- **Frontend**: React 19 + TypeScript.
+- **Estilos**: Tailwind CSS 4 para una UI ultra-moderna.
+- **Backend & Realtime**: Supabase (PostgreSQL + Realtime).
+- **Animaciones**: Framer Motion.
+- **Voz**: Web Speech API (Synthesis & Recognition).
+- **Iconos**: Lucide React.
 
-1. **Clonar el proyecto**
+---
+
+## 🚀 Instalación y Configuración
+
+1. **Clonar el repositorio**
    ```bash
-   git clone [tu-repositorio-url]
-   cd project2
+   git clone [url-del-repo]
+   cd easy-menu-saas
    ```
 
 2. **Instalar dependencias**
@@ -74,40 +64,38 @@ Sigue estos pasos para tener tu Dashboard funcionando en menos de 2 minutos:
    npm install
    ```
 
-3. **Configurar variables de entorno**
-   Crea un archivo `.env.local` con tus credenciales de Supabase:
+3. **Variables de Entorno (`.env.local`)**
+   Crea el archivo en la raíz con tus credenciales de Supabase:
    ```env
    VITE_SUPABASE_URL=tu_url_de_supabase
-   VITE_SUPABASE_ANON_KEY=tu_clave_anon_de_supabase
+   VITE_SUPABASE_ANON_KEY=tu_clave_anon
+   
+   # Opcional: Para que el QR apunte siempre a producción aunque estés en local
+   VITE_PUBLIC_URL=https://tu-proyecto.vercel.app
    ```
 
-4. **Iniciar en modo desarrollo**
+4. **Correr el proyecto**
    ```bash
    npm run dev
    ```
 
 ---
 
-## 🧪 Comandos de Voz Admitidos
+## 📦 Despliegue en Vercel
 
-| Acción | Ejemplo de Comando |
-| :--- | :--- |
-| **Actualizar Precio** | *"Poner el Ceviche a 35 soles"* |
-| **Marcar Agotado** | *"Se terminó el Arroz con Pollo"* |
-| **Marcar Disponible** | *"Activa el Pisco Sour"* |
-| **Descuentos Globales** | *"Aplica descuento del 20% a Bebidas"* |
-| **Mantenimiento** | *"Limpiar carta"* o *"Restablecer platos"* |
+1. Sube tu código a GitHub.
+2. Conecta el repo en Vercel.
+3. Configura las **Environment Variables** (`VITE_SUPABASE_URL`, etc.) en el panel de Vercel.
+4. El despliegue será automático en cada `push`.
 
 ---
 
-## 📱 Pruebas en Móvil (Red Local)
-
-Para probar la carta digital en tu celular mientras desarrollas:
-1. Asegúrate de que tu PC y tu celular estén en la **misma red Wi-Fi**.
-2. Corre el proyecto usando `npm run dev`. Vite ahora está configurado con `--host`.
-3. En tu PC, no uses `localhost`. Usa tu **IP Local** (ej: `http://192.168.18.4:5173`).
-4. Abre el QR y escanéalo. ¡Ahora el celular podrá conectarse correctamente!
+## 📱 Guía para Pruebas en Móvil
+Si quieres probar el QR desde tu celular mientras programas en local:
+1. Conecta PC y Celular a la misma red Wi-Fi.
+2. Entra al Dashboard usando tu **IP Local** (ej: `http://192.168.1.XX:5173`).
+3. Abre el QR y escanéalo. ¡La carta aparecerá en tu móvil al instante!
 
 ---
 
-Desarrollado con ❤️ para la industria gastronómica. 🍽️
+Desarrollado con ❤️ para la nueva era de la gastronomía digital. 🍽️✨
